@@ -2,42 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a4ebdaf-bd71-4e00-b4d9-49eef66ad968" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/root.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Asset.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Asset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Cdn.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Cdn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/CdnFacade.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/CdnFacade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/CdnHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/CdnHelper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/CdnServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/CdnServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Commands/EmptyCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Commands/EmptyCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Commands/PushCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Commands/PushCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Contracts/AssetInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Contracts/AssetInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Contracts/CdnFacadeInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Contracts/CdnFacadeInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Contracts/CdnHelperInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Contracts/CdnHelperInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Contracts/CdnInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Contracts/CdnInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Contracts/FinderInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Contracts/FinderInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Contracts/ProviderFactoryInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Contracts/ProviderFactoryInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Exceptions/Exceptions.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Exceptions/Exceptions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Facades/CdnFacadeAccessor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Facades/CdnFacadeAccessor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Finder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Finder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/ProviderFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/ProviderFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Providers/AwsS3Provider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Providers/AwsS3Provider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Providers/Contracts/ProviderInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Providers/Contracts/ProviderInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Providers/Provider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Providers/Provider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Validators/CdnFacadeValidator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Validators/CdnFacadeValidator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Validators/Contracts/CdnFacadeValidatorInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Validators/Contracts/CdnFacadeValidatorInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Validators/Contracts/ProviderValidatorInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Validators/Contracts/ProviderValidatorInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Validators/Contracts/ValidatorInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Validators/Contracts/ValidatorInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Validators/ProviderValidator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Validators/ProviderValidator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Validators/Validator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vipertecpro/laravelcdn6/Validators/Validator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Vipertecpro/laravelcdn6/AssetTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Vipertecpro/laravelcdn6/AssetTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Vipertecpro/laravelcdn6/CdnFacadeTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Vipertecpro/laravelcdn6/CdnFacadeTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Vipertecpro/laravelcdn6/FinderTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Vipertecpro/laravelcdn6/FinderTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Vipertecpro/laravelcdn6/ProviderFactoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Vipertecpro/laravelcdn6/ProviderFactoryTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Vipertecpro/laravelcdn6/Providers/AwsS3ProviderTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Vipertecpro/laravelcdn6/Providers/AwsS3ProviderTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +160,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1576219534018</updated>
-      <workItem from="1576219535578" duration="9185000" />
+      <workItem from="1576219535578" duration="9442000" />
     </task>
     <servers />
   </component>
