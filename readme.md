@@ -1,13 +1,12 @@
-# Laravel CDN Assets Manager
+# Laravel6 CDN Assets Manager
+[![Latest Stable Version](https://poser.pugx.org/vipertecpro/laravelcdn6/v/stable)](https://packagist.org/packages/vipertecpro/laravelcdn6)
+[![Total Downloads](https://poser.pugx.org/vipertecpro/laravelcdn6/downloads)](https://packagist.org/packages/vipertecpro/laravelcdn6)
+[![Build Status](https://travis-ci.org/vipertecpro/laravelcdn6.svg?branch=master)](https://travis-ci.org/vipertecpro/laravelcdn6)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/vipertecpro/laravelcdn6/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/vipertecpro/laravelcdn6/?branch=master)
+[![License](https://poser.pugx.org/vipertecpro/laravelcdn6/license)](https://packagist.org/packages/vipertecpro/laravelcdn6)
 
-[![Latest Stable Version](https://poser.pugx.org/publiux/laravelcdn/v/stable)](https://packagist.org/packages/publiux/laravelcdn)
-[![Total Downloads](https://poser.pugx.org/publiux/laravelcdn/downloads)](https://packagist.org/packages/publiux/laravelcdn)
-[![Build Status](https://travis-ci.org/publiux/laravelcdn.svg)](https://travis-ci.org/publiux/laravelcdn)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/publiux/laravelcdn/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/publiux/laravelcdn/?branch=master)
-[![License](https://poser.pugx.org/publiux/laravelcdn/license)](https://packagist.org/packages/publiux/laravelcdn)
 
-
-##### Content Delivery Network Package for Laravel
+##### Content Delivery Network Package for Laravel6
 
 The package provides the developer the ability to upload their assets (or any public file) to a CDN with a single artisan command.
 And then it allows them to switch between the local and the online version of the files.
@@ -15,9 +14,8 @@ And then it allows them to switch between the local and the online version of th
 ###### Fork From [Vinelab/cdn](https://github.com/Vinelab/cdn)
 This project has been forked from https://github.com/Vinelab/cdn. All credit for the original work goes there.
 
-#### Laravel Support
-- This fork supports Laravel 5.2 up to an including Laravel 5.5 (`master`).
-- Laravel 5.5 is supported, as is package auto-discovery.
+#### Laravel 6 Support
+- Laravel 6 is supported, as is package auto-discovery.
 
 ## Highlights
 
@@ -28,30 +26,31 @@ This project has been forked from https://github.com/Vinelab/cdn. All credit for
 
 
 ### Questions
-1. Is this package an alternative to Laravel FileSystem and do they work together?
+1. Is this package an alternative to Laravel6 FileSystem and do they work together?
 
-+ No, the package was introduced in Laravel 4 and it's main purpose is to manage your CDN assets by loading them from the CDN into your Views pages, and easily switch between your Local and CDN version of the files. As well it allows you to upload all your assets with single command after specifying the assets directory and rules. The FileSystem was introduced in Laravel 5 and it's designed to facilitate the loading/uploading of files form/to a CDN. It can be used the same way as this Package for loading assets from the CDN, but it's harder to upload your assets to the CDN since it expect you to upload your files one by one. As a result this package still not a replacement of the Laravel FileSystem and they can be used together.
++ No, the package was introduced in Laravel6 4 and it's main purpose is to manage your CDN assets by loading them from the CDN into your Views pages, and easily switch between your Local and CDN version of the files. As well it allows you to upload all your assets with single command after specifying the assets directory and rules. The FileSystem was introduced in Laravel6 5 and it's designed to facilitate the loading/uploading of files form/to a CDN. It can be used the same way as this Package for loading assets from the CDN, but it's harder to upload your assets to the CDN since it expect you to upload your files one by one. As a result this package still not a replacement of the Laravel6 FileSystem and they can be used together.
 
 
 ## Installation
 
 #### Via Composer
 
-Require `publiux/laravelcdn` in your project:
+Require `vipertecpro/laravelcdn6` in your project:
 
 ```bash
-composer require "publiux/laravelcdn:~2.0"
+composer require vipertecpro/laravelcdn6
 ```
 
-*If you are using Laravel 5.4 or below, you need to register the service provider:*
+*If you are using Laravel6 5.4 or below, you need to register the service provider:*
 
-Laravel 5.4 and below: Add the service provider and facade to `config/app.php`:
+Laravel6 5.4 and below: Add the service provider and facade to `config/app.php`:
 
 ```php
 'providers' => array(
      //...
      Vipertecpro\laravelcdn6\CdnServiceProvider::class,
 ),
+
 ```
 
 ```php
@@ -61,7 +60,7 @@ Laravel 5.4 and below: Add the service provider and facade to `config/app.php`:
 ),
 ```
 
-*If you are using Laravel 5.5, there is no need to register the service provider as this package is automatically discovered.*
+*If you are using Laravel6 5.5, there is no need to register the service provider as this package is automatically discovered.*
 
 Publish the package config file:
 
@@ -235,20 +234,20 @@ CAUTION: This will erase your entire bucket. This may not be what you want if yo
 
 Use the facade `CDN` to call the `CDN::asset()` function.
 
-*Note: the `asset` works the same as the Laravel `asset` it start looking for assets in the `public/` directory:*
+*Note: the `asset` works the same as the Laravel6 `asset` it start looking for assets in the `public/` directory:*
 
 ```blade
 {{CDN::asset('assets/js/main.js')}}        // example result: https://js-bucket.s3.amazonaws.com/public/assets/js/main.js
 
 {{CDN::asset('assets/css/style.css')}}        // example result: https://css-bucket.s3.amazonaws.com/public/assets/css/style.css
 ```
-*Note: the `elixir` works the same as the Laravel `elixir` it loads the manifest.json file from build folder and choose the correct file revision generated by  gulp:*
+*Note: the `elixir` works the same as the Laravel6 `elixir` it loads the manifest.json file from build folder and choose the correct file revision generated by  gulp:*
 ```blade
 {{CDN::elixir('assets/js/main.js')}}        // example result: https://js-bucket.s3.amazonaws.com/public/build/assets/js/main-85cafe36ff.js
 
 {{CDN::elixir('assets/css/style.css')}}        // example result: https://css-bucket.s3.amazonaws.com/public/build/assets/css/style-2d558139f2.css
 ```
-*Note: the `mix` works the same as the Laravel 5.4 `mix` it loads the mix-manifest.json file from public folder and choose the correct file revision generated by webpack:*
+*Note: the `mix` works the same as the Laravel6 5.4 `mix` it loads the mix-manifest.json file from public folder and choose the correct file revision generated by webpack:*
 ```blade
 {{CDN::mix('/js/main.js')}}        // example result: https://js-bucket.s3.amazonaws.com/public/js/main-85cafe36ff.js
 
@@ -272,54 +271,17 @@ $ ./vendor/bin/phpunit
 
 ## Support
 
-Please request support or submit issues [via Github](https://github.com/publiux/laravelcdn/issues)
+Please request support or submit issues [via Github](https://github.com/vipertecpro/laravelcdn6/issues)
 
 
 ## Contributing
 
-Please see [CONTRIBUTING](https://github.com/publiux/laravelcdn/blob/master/CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](https://github.com/vipertecpro/laravelcdn6/blob/master/CONTRIBUTING.md) for details.
 
 ## Security Related Issues
 
-If you discover any security related issues, please email publiux@gmail.com instead of using the issue tracker for faster response. You should open an issue at the same time.
-
-## Credits
-- [Raul Ruiz](https://github.com/publiux) (forker)
-- [Mahmoud Zalt](https://github.com/Mahmoudz) (original developer)
-- [Filipe Garcia](https://github.com/filipegar) (contributred pre-fork, uncredited pull request for duplicate uploading verification)
-- [Contributors from original project](https://github.com/Vinelab/cdn/graphs/contributors)
-- [All Contributors for this Fork](../../contributors)
-
+If you discover any security related issues, please email vipertecpro@gmail.com instead of using the issue tracker for faster response. You should open an issue at the same time.
 
 ## License
 
-The MIT License (MIT). Please see [License File](https://github.com/publiux/laravelcdn/blob/master/LICENSE) for more information.
-
-## Changelog
-
-#### v2.0.5
-- Added connection error reporting
-
-#### v2.0.4
-- Added API support for DigitalOcean Spaces
-
-#### v2.0.3
-- Added support for an upload folder prefix
-
-#### v2.0.2
-- Updated readme to detail instructions on Laravel <5.5 usage
-
-#### v2.0.1
-- Fixed typo in composer.json
-
-#### v2.0.0
-- Support for Laravel 5.5
-
-#### v1.0.3
-- Fixed bug where schemeless Urls could not be used for CloudFront. Valid urls now begin with http, https, or simply '//'
-
-#### v1.0.2
-- Fixed bug where the elixir function was inadvertently omitted from the release.
-
-#### v1.0.1
-- Allow configuration using environment values
+The MIT License (MIT). Please see [License File](https://github.com/vipertecpro/laravelcdn6/blob/master/LICENSE) for more information.

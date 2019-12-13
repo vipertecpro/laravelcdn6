@@ -14,26 +14,24 @@ use Vipertecpro\laravelcdn6\Exceptions\UnsupportedProviderException;
  *
  * @category Factory
  *
- * @author  Mahmoud Zalt <mahmoud@vinelab.com>
+ * @author  Vipul Walia <vipertecpro@gmail.com>
  */
 class ProviderFactory implements ProviderFactoryInterface
 {
-    const DRIVERS_NAMESPACE = 'Vipertecpro\\laravelcdn6\\Providers\\';
+    public const DRIVERS_NAMESPACE = 'Vipertecpro\\laravelcdn6\\Providers\\';
 
     /**
      * Create and return an instance of the corresponding
      * Provider concrete according to the configuration.
      *
      * @param array $configurations
-     *
-     * @throws \Vipertecpro\laravelcdn6\UnsupportedDriverException
-     *
+     **
      * @return mixed
      */
     public function create($configurations = [])
     {
         // get the default provider name
-        $provider = isset($configurations['default']) ? $configurations['default'] : null;
+        $provider = $configurations['default'] ?? null;
 
         if (!$provider) {
             throw new MissingConfigurationException('Missing Configurations: Default Provider');
@@ -47,8 +45,6 @@ class ProviderFactory implements ProviderFactoryInterface
         }
 
         // initialize the driver object and initialize it with the configurations
-        $driver_object = App::make($driver_class)->init($configurations);
-
-        return $driver_object;
+        return App::make($driver_class)->init($configurations);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Vipertecpro\laravelcdn6;
 
+use Illuminate\Support\Collection;
 use Vipertecpro\laravelcdn6\Contracts\AssetInterface;
 
 /**
@@ -11,7 +12,7 @@ use Vipertecpro\laravelcdn6\Contracts\AssetInterface;
  *
  * @category DTO
  *
- * @author  Mahmoud Zalt <mahmoud@vinelab.com>
+ * @author  Vipul Walia <vipertecpro@gmail.com>
  */
 class Asset implements AssetInterface
 {

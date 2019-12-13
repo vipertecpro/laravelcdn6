@@ -14,7 +14,7 @@ use Vipertecpro\laravelcdn6\Contracts\CdnHelperInterface;
  *
  * @category Test
  *
- * @author   Mahmoud Zalt <mahmoud@vinelab.com>
+ * @author   Vipul Walia <vipertecpro@gmail.com>
  */
 class CdnFacadeTest extends TestCase
 {

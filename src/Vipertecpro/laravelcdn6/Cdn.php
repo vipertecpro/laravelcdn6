@@ -14,7 +14,7 @@ use Vipertecpro\laravelcdn6\Contracts\ProviderFactoryInterface;
  *
  * @category Main Class
  *
- * @author  Mahmoud Zalt <mahmoud@vinelab.com>
+ * @author  Vipul Walia <vipertecpro@gmail.com>
  */
 class Cdn implements CdnInterface
 {

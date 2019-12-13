@@ -6,7 +6,7 @@ namespace Vipertecpro\laravelcdn6\Validators\Contracts;
 /**
  * Interface ValidatorInterface.
  *
- * @author  Mahmoud Zalt <mahmoud@vinelab.com>
+ * @author  Vipul Walia <vipertecpro@gmail.com>
  */
 interface ValidatorInterface
 {

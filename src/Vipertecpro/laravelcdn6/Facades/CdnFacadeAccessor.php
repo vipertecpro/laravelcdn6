@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Facade;
  *
  * @category Facade Accessor
  *
- * @author  Mahmoud Zalt <mahmoud@vinelab.com>
+ * @author  Vipul Walia <vipertecpro@gmail.com>
  */
 class CdnFacadeAccessor extends Facade
 {

@@ -10,7 +10,7 @@ use Vipertecpro\laravelcdn6\Validators\Contracts\ValidatorInterface;
  *
  * @category Main Validator
  *
- * @author  Mahmoud Zalt <mahmoud@vinelab.com>
+ * @author  Vipul Walia <vipertecpro@gmail.com>
  */
 class Validator implements ValidatorInterface
 {

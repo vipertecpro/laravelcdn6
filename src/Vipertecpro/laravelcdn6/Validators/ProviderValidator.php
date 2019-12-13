@@ -10,7 +10,7 @@ use Vipertecpro\laravelcdn6\Validators\Contracts\ProviderValidatorInterface;
  *
  * @category
  *
- * @author  Mahmoud Zalt <mahmoud@vinelab.com>
+ * @author  Vipul Walia <vipertecpro@gmail.com>
  */
 class ProviderValidator extends Validator implements ProviderValidatorInterface
 {
@@ -20,14 +20,14 @@ class ProviderValidator extends Validator implements ProviderValidatorInterface
      * @param $configuration
      * @param $required
      *
-     * @throws \Vipertecpro\laravelcdn6\Exceptions\MissingConfigurationException
+     * @throws MissingConfigurationException
      */
     public function validate($configuration, $required)
     {
         // search for any null or empty field to throw an exception
         $missing = '';
         foreach ($configuration as $key => $value) {
-            if (in_array($key, $required) &&
+            if (in_array($key, $required, true) &&
                 (empty($value) || $value == null || $value == '')
             ) {
                 $missing .= ' '.$key;

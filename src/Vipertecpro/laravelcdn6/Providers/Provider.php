@@ -9,7 +9,7 @@ use Vipertecpro\laravelcdn6\Providers\Contracts\ProviderInterface;
  *
  * @category Drivers Abstract Class
  *
- * @author   Mahmoud Zalt <mahmoud@vinelab.com>
+ * @author   Vipul Walia <vipertecpro@gmail.com>
  */
 abstract class Provider implements ProviderInterface
 {

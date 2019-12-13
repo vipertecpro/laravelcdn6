@@ -3,11 +3,16 @@
 namespace Vipertecpro\laravelcdn6\Providers;
 
 use Aws\S3\BatchDelete;
+use Aws\S3\Exception\DeleteMultipleObjectsException;
 use Aws\S3\Exception\S3Exception;
+use Aws\S3\RegionalEndpoint\Configuration;
 use Aws\S3\S3Client;
+use Exception;
+use Illuminate\Foundation\Mix;
 use Illuminate\Support\Collection;
+use phpDocumentor\Reflection\Types\Array_;
+use PHPUnit\Framework\Constraint\IsInstanceOf;
 use Vipertecpro\laravelcdn6\Contracts\CdnHelperInterface;
-use Vipertecpro\laravelcdn6\Providers\Contracts\ProviderInterface;
 use Vipertecpro\laravelcdn6\Validators\Contracts\ProviderValidatorInterface;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
@@ -30,9 +35,9 @@ use Symfony\Component\Console\Output\ConsoleOutput;
  * @property string  $cloudfront_url
  * @property string $http
  *
- * @author   Mahmoud Zalt <mahmoud@vinelab.com>
+ * @author   Vipul Walia <vipertecpro@gmail.com>
  */
-class AwsS3Provider extends Provider implements ProviderInterface
+class AwsS3Provider extends Provider
 {
     /**
      * All the configurations needed by this class with the
@@ -72,39 +77,39 @@ class AwsS3Provider extends Provider implements ProviderInterface
     /**
      * this array holds the parsed configuration to be used across the class.
      *
-     * @var Array
+     * @var Array_
      */
     protected $supplier;
 
     /**
-     * @var Instance of Aws\S3\S3Client
+     * @var IsInstanceOf of Aws\S3\S3Client
      */
     protected $s3_client;
 
     /**
-     * @var Instance of Guzzle\Batch\BatchBuilder
+     * @var IsInstanceOf Guzzle\Batch\BatchBuilder
      */
     protected $batch;
 
     /**
-     * @var \Vipertecpro\laravelcdn6\Contracts\CdnHelperInterface
+     * @var CdnHelperInterface
      */
     protected $cdn_helper;
 
     /**
-     * @var \Vipertecpro\laravelcdn6\Validators\Contracts\ConfigurationsInterface
+     * @var Configuration
      */
     protected $configurations;
 
     /**
-     * @var \Vipertecpro\laravelcdn6\Validators\Contracts\ProviderValidatorInterface
+     * @var ProviderValidatorInterface
      */
     protected $provider_validator;
 
     /**
-     * @param \Symfony\Component\Console\Output\ConsoleOutput $console
-     * @param \Vipertecpro\laravelcdn6\Validators\Contracts\ProviderValidatorInterface $provider_validator
-     * @param \Vipertecpro\laravelcdn6\Contracts\CdnHelperInterface                    $cdn_helper
+     * @param ConsoleOutput $console
+     * @param ProviderValidatorInterface $provider_validator
+     * @param CdnHelperInterface $cdn_helper
      */
     public function __construct(
         ConsoleOutput $console,
@@ -186,7 +191,7 @@ class AwsS3Provider extends Provider implements ProviderInterface
                         // the path of the file on the server (CDN)
                         'Key' => $this->supplier['upload_folder'] . str_replace('\\', '/', $file->getPathName()),
                         // the path of the path locally
-                        'Body' => fopen($file->getRealPath(), 'r'),
+                        'Body' => fopen($file->getRealPath(), 'rb'),
                         // the permission of the file
 
                         'ACL' => $this->acl,
@@ -232,7 +237,7 @@ class AwsS3Provider extends Provider implements ProviderInterface
                     ]
                 )
             );
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->console->writeln('<fg=red>Connection error: '.$e->getMessage().'</fg=red>');
             return false;
         }
@@ -268,13 +273,13 @@ class AwsS3Provider extends Provider implements ProviderInterface
         foreach ($files['Contents'] as $file) {
             $a = [
                 'Key' => $file['Key'],
-                "LastModified" => $file['LastModified']->getTimestamp(),
+                'LastModified' => $file['LastModified']->getTimestamp(),
                 'Size' => $file['Size']
             ];
             $filesOnAWS->put($file['Key'], $a);
         }
 
-        $assets->transform(function ($item, $key) use (&$filesOnAWS) {
+        $assets->transform(static function ($item, $key) use (&$filesOnAWS) {
             $fileOnAWS = $filesOnAWS->get(str_replace('\\', '/', $item->getPathName()));
 
             //select to upload files that are different in size AND last modified time.
@@ -283,7 +288,7 @@ class AwsS3Provider extends Provider implements ProviderInterface
             }
         });
 
-        $assets = $assets->reject(function ($item) {
+        $assets = $assets->reject(static function ($item) {
             return $item === null;
         });
 
@@ -291,7 +296,7 @@ class AwsS3Provider extends Provider implements ProviderInterface
     }
 
     /**
-     * @return array
+     * @return string
      */
     public function getBucket()
     {
@@ -310,6 +315,7 @@ class AwsS3Provider extends Provider implements ProviderInterface
      * Empty bucket.
      *
      * @return bool
+     * @throws DeleteMultipleObjectsException
      */
     public function emptyBucket()
     {
@@ -415,6 +421,6 @@ class AwsS3Provider extends Provider implements ProviderInterface
      */
     public function __get($attr)
     {
-        return isset($this->supplier[$attr]) ? $this->supplier[$attr] : null;
+        return $this->supplier[$attr] ?? null;
     }
 }

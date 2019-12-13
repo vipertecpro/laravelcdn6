@@ -9,7 +9,7 @@ use Vipertecpro\laravelcdn6\Validators\Contracts\CdnFacadeValidatorInterface;
  *
  * @category Validator
  *
- * @author  Mahmoud Zalt <mahmoud@vinelab.com>
+ * @author  Vipul Walia <vipertecpro@gmail.com>
  */
 class CdnFacadeValidator extends Validator implements CdnFacadeValidatorInterface
 {

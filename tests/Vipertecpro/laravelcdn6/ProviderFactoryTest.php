@@ -13,7 +13,7 @@ use Vipertecpro\laravelcdn6\Providers\AwsS3Provider;
  *
  * @category Test
  *
- * @author  Mahmoud Zalt <mahmoud@vinelab.com>
+ * @author  Vipul Walia <vipertecpro@gmail.com>
  */
 class ProviderFactoryTest extends TestCase
 {

@@ -5,7 +5,7 @@ namespace Vipertecpro\laravelcdn6\Contracts;
 /**
  * Interface CdnFacadeInterface.
  *
- * @author   Mahmoud Zalt <mahmoud@vinelab.com>
+ * @author   Vipul Walia <vipertecpro@gmail.com>
  */
 interface CdnFacadeInterface
 {

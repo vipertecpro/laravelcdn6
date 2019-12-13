@@ -3,7 +3,7 @@
 namespace Vipertecpro\laravelcdn6\Exceptions;
 
 /**
- * @author Mahmoud Zalt <mahmoud@vinelab.com>
+ * @author Vipul Walia <vipertecpro@gmail.com>
  */
 class CdnException extends \RuntimeException
 {

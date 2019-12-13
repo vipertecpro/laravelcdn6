@@ -3,13 +3,35 @@
 namespace Vipertecpro\laravelcdn6;
 
 use Illuminate\Support\ServiceProvider;
+use Vipertecpro\laravelcdn6\Contracts\CdnInterface;
+use Vipertecpro\laravelcdn6\Cdn;
+use Vipertecpro\laravelcdn6\Providers\Contracts\ProviderInterface;
+use Vipertecpro\laravelcdn6\Providers\AwsS3Provider;
+use Vipertecpro\laravelcdn6\Contracts\AssetInterface;
+use Vipertecpro\laravelcdn6\Asset;
+use Vipertecpro\laravelcdn6\Contracts\FinderInterface;
+use Vipertecpro\laravelcdn6\Finder;
+use Vipertecpro\laravelcdn6\Contracts\ProviderFactoryInterface;
+use Vipertecpro\laravelcdn6\ProviderFactory;
+use Vipertecpro\laravelcdn6\Contracts\CdnFacadeInterface;
+use Vipertecpro\laravelcdn6\CdnFacade;
+use Vipertecpro\laravelcdn6\Contracts\CdnHelperInterface;
+use Vipertecpro\laravelcdn6\CdnHelper;
+use Vipertecpro\laravelcdn6\Validators\Contracts\ProviderValidatorInterface;
+use Vipertecpro\laravelcdn6\Validators\ProviderValidator;
+use Vipertecpro\laravelcdn6\Validators\Contracts\CdnFacadeValidatorInterface;
+use Vipertecpro\laravelcdn6\Validators\CdnFacadeValidator;
+use Vipertecpro\laravelcdn6\Validators\Contracts\ValidatorInterface;
+use Vipertecpro\laravelcdn6\Validators\Validator;
+use Vipertecpro\laravelcdn6\Commands\PushCommand;
+use Vipertecpro\laravelcdn6\Commands\EmptyCommand;
 
 /**
  * Class CdnServiceProvider.
  *
  * @category Service Provider
  *
- * @author  Mahmoud Zalt <mahmoud@vinelab.com>
+ * @author  Vipul Walia <vipertecpro@gmail.com>
  * @author  Abed Halawi <abed.halawi@vinelab.com>
  */
 class CdnServiceProvider extends ServiceProvider
@@ -44,65 +66,65 @@ class CdnServiceProvider extends ServiceProvider
         // implementation bindings:
         //-------------------------
         $this->app->bind(
-            'Vipertecpro\laravelcdn6\Contracts\CdnInterface',
-            'Vipertecpro\laravelcdn6\Cdn'
+            CdnInterface::class,
+            Cdn::class
         );
 
         $this->app->bind(
-            'Vipertecpro\laravelcdn6\Providers\Contracts\ProviderInterface',
-            'Vipertecpro\laravelcdn6\Providers\AwsS3Provider'
+            ProviderInterface::class,
+            AwsS3Provider::class
         );
 
         $this->app->bind(
-            'Vipertecpro\laravelcdn6\Contracts\AssetInterface',
-            'Vipertecpro\laravelcdn6\Asset'
+            AssetInterface::class,
+            Asset::class
         );
 
         $this->app->bind(
-            'Vipertecpro\laravelcdn6\Contracts\FinderInterface',
-            'Vipertecpro\laravelcdn6\Finder'
+            FinderInterface::class,
+            Finder::class
         );
 
         $this->app->bind(
-            'Vipertecpro\laravelcdn6\Contracts\ProviderFactoryInterface',
-            'Vipertecpro\laravelcdn6\ProviderFactory'
+            ProviderFactoryInterface::class,
+            ProviderFactory::class
         );
 
         $this->app->bind(
-            'Vipertecpro\laravelcdn6\Contracts\CdnFacadeInterface',
-            'Vipertecpro\laravelcdn6\CdnFacade'
+            CdnFacadeInterface::class,
+            CdnFacade::class
         );
 
         $this->app->bind(
-            'Vipertecpro\laravelcdn6\Contracts\CdnHelperInterface',
-            'Vipertecpro\laravelcdn6\CdnHelper'
+            CdnHelperInterface::class,
+            CdnHelper::class
         );
 
         $this->app->bind(
-            'Vipertecpro\laravelcdn6\Validators\Contracts\ProviderValidatorInterface',
-            'Vipertecpro\laravelcdn6\Validators\ProviderValidator'
+            ProviderValidatorInterface::class,
+            ProviderValidator::class
         );
 
         $this->app->bind(
-            'Vipertecpro\laravelcdn6\Validators\Contracts\CdnFacadeValidatorInterface',
-            'Vipertecpro\laravelcdn6\Validators\CdnFacadeValidator'
+            CdnFacadeValidatorInterface::class,
+            CdnFacadeValidator::class
         );
 
         $this->app->bind(
-            'Vipertecpro\laravelcdn6\Validators\Contracts\ValidatorInterface',
-            'Vipertecpro\laravelcdn6\Validators\Validator'
+            ValidatorInterface::class,
+            Validator::class
         );
 
         // register the commands:
         //-----------------------
         $this->app->singleton('cdn.push', function ($app) {
-            return $app->make('Vipertecpro\laravelcdn6\Commands\PushCommand');
+            return $app->make(PushCommand::class);
         });
 
         $this->commands('cdn.push');
 
         $this->app->singleton('cdn.empty', function ($app) {
-            return $app->make('Vipertecpro\laravelcdn6\Commands\EmptyCommand');
+            return $app->make(EmptyCommand::class);
         });
 
         $this->commands('cdn.empty');
@@ -111,8 +133,8 @@ class CdnServiceProvider extends ServiceProvider
         //-----------------
 
         // Register 'CdnFacade' instance container to our CdnFacade object
-        $this->app->singleton('CDN', function ($app) {
-            return $app->make('Vipertecpro\laravelcdn6\CdnFacade');
+        $this->app->singleton('CDN', static function ($app) {
+            return $app->make(CdnFacade::class);
         });
 
         // Shortcut so developers don't need to add an Alias in app/config/app.php

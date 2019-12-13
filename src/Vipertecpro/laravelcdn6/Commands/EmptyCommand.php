@@ -3,6 +3,7 @@
 namespace Vipertecpro\laravelcdn6\Commands;
 
 use Illuminate\Console\Command;
+use Vipertecpro\laravelcdn6\Cdn;
 use Vipertecpro\laravelcdn6\Contracts\CdnInterface;
 
 /**
@@ -10,7 +11,7 @@ use Vipertecpro\laravelcdn6\Contracts\CdnInterface;
  *
  * @category Command
  *
- * @author   Mahmoud Zalt <mahmoud@vinelab.com>
+ * @author   Vipul Walia <vipertecpro@gmail.com>
  * @author   Raul Ruiz <publiux@gmail.com>
  */
 class EmptyCommand extends Command
@@ -32,7 +33,7 @@ class EmptyCommand extends Command
     /**
      * an instance of the main Cdn class.
      *
-     * @var Vinelab\Cdn\Cdn
+     * @var Cdn
      */
     protected $cdn;
 

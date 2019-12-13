@@ -13,19 +13,19 @@ use Vipertecpro\laravelcdn6\Exceptions\MissingConfigurationFileException;
  *
  * @category General Helper
  *
- * @author  Mahmoud Zalt <mahmoud@vinelab.com>
+ * @author  Vipul Walia <vipertecpro@gmail.com>
  */
 class CdnHelper implements CdnHelperInterface
 {
     /**
      * An object of the 'Repository' class that allows reading the laravel config files.
      *
-     * @var \Illuminate\Config\Repository
+     * @var Repository
      */
     protected $configurations;
 
     /**
-     * @param \Illuminate\Config\Repository $configurations
+     * @param Repository $configurations
      */
     public function __construct(Repository $configurations)
     {
@@ -57,15 +57,15 @@ class CdnHelper implements CdnHelperInterface
      * @param $configuration
      * @param $required
      *
-     * @throws \Vipertecpro\laravelcdn6\Exceptions\MissingConfigurationException
+     * @throws MissingConfigurationException
      */
     public function validate($configuration, $required)
     {
         // search for any null or empty field to throw an exception
         $missing = '';
         foreach ($configuration as $key => $value) {
-            if (in_array($key, $required) &&
-                (empty($value) || $value == null || $value == '')
+            if (in_array($key, $required, true) &&
+                (empty($value) || $value === null || $value === '')
             ) {
                 $missing .= ' '.$key;
             }

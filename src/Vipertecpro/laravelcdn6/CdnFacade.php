@@ -3,10 +3,12 @@
 namespace Vipertecpro\laravelcdn6;
 
 use Illuminate\Support\Facades\Request;
+use InvalidArgumentException;
 use Vipertecpro\laravelcdn6\Contracts\CdnFacadeInterface;
 use Vipertecpro\laravelcdn6\Contracts\CdnHelperInterface;
 use Vipertecpro\laravelcdn6\Contracts\ProviderFactoryInterface;
 use Vipertecpro\laravelcdn6\Exceptions\EmptyPathException;
+use Vipertecpro\laravelcdn6\Providers\Contracts\ProviderInterface;
 use Vipertecpro\laravelcdn6\Validators\CdnFacadeValidator;
 
 /**
@@ -14,7 +16,7 @@ use Vipertecpro\laravelcdn6\Validators\CdnFacadeValidator;
  *
  * @category
  *
- * @author  Mahmoud Zalt <mahmoud@vinelab.com>
+ * @author  Vipul Walia <vipertecpro@gmail.com>
  */
 class CdnFacade implements CdnFacadeInterface
 {
@@ -24,33 +26,33 @@ class CdnFacade implements CdnFacadeInterface
     protected $configurations;
 
     /**
-     * @var \Vipertecpro\laravelcdn6\Contracts\ProviderFactoryInterface
+     * @var ProviderFactoryInterface
      */
     protected $provider_factory;
 
     /**
      * instance of the default provider object.
      *
-     * @var \Vipertecpro\laravelcdn6\Providers\Contracts\ProviderInterface
+     * @var ProviderInterface
      */
     protected $provider;
 
     /**
-     * @var \Vipertecpro\laravelcdn6\Contracts\CdnHelperInterface
+     * @var CdnHelperInterface
      */
     protected $helper;
 
     /**
-     * @var \Vipertecpro\laravelcdn6\Validators\CdnFacadeValidator
+     * @var CdnFacadeValidator
      */
     protected $cdn_facade_validator;
 
     /**
      * Calls the provider initializer.
      *
-     * @param \Vipertecpro\laravelcdn6\Contracts\ProviderFactoryInterface $provider_factory
-     * @param \Vipertecpro\laravelcdn6\Contracts\CdnHelperInterface       $helper
-     * @param \Vipertecpro\laravelcdn6\Validators\CdnFacadeValidator      $cdn_facade_validator
+     * @param ProviderFactoryInterface $provider_factory
+     * @param CdnHelperInterface $helper
+     * @param CdnFacadeValidator $cdn_facade_validator
      */
     public function __construct(
         ProviderFactoryInterface $provider_factory,
@@ -145,7 +147,7 @@ class CdnFacade implements CdnFacadeInterface
     public function mix($path)
     {
         static $manifest = null;
-        if (is_null($manifest)) {
+        if ($manifest === null) {
             $manifest = json_decode(file_get_contents(public_path('mix-manifest.json')), true);
         }
         if (isset($manifest['/' . $path])) {
@@ -154,7 +156,7 @@ class CdnFacade implements CdnFacadeInterface
         if (isset($manifest[$path])) {
             return $this->generateUrl($manifest[$path], 'public/');
         }
-        throw new \InvalidArgumentException("File {$path} not defined in asset manifest.");
+        throw new InvalidArgumentException("File {$path} not defined in asset manifest.");
     }
 
     /**
@@ -171,13 +173,13 @@ class CdnFacade implements CdnFacadeInterface
     public function elixir($path)
     {
         static $manifest = null;
-        if (is_null($manifest)) {
+        if ($manifest === null) {
             $manifest = json_decode(file_get_contents(public_path('build/rev-manifest.json')), true);
         }
         if (isset($manifest[$path])) {
             return $this->generateUrl('build/' . $manifest[$path], 'public/');
         }
-        throw new \InvalidArgumentException("File {$path} not defined in asset manifest.");
+        throw new InvalidArgumentException("File {$path} not defined in asset manifest.");
     }
 
     /**
