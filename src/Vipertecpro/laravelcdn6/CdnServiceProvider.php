@@ -4,19 +4,13 @@ namespace Vipertecpro\laravelcdn6;
 
 use Illuminate\Support\ServiceProvider;
 use Vipertecpro\laravelcdn6\Contracts\CdnInterface;
-use Vipertecpro\laravelcdn6\Cdn;
 use Vipertecpro\laravelcdn6\Providers\Contracts\ProviderInterface;
 use Vipertecpro\laravelcdn6\Providers\AwsS3Provider;
 use Vipertecpro\laravelcdn6\Contracts\AssetInterface;
-use Vipertecpro\laravelcdn6\Asset;
 use Vipertecpro\laravelcdn6\Contracts\FinderInterface;
-use Vipertecpro\laravelcdn6\Finder;
 use Vipertecpro\laravelcdn6\Contracts\ProviderFactoryInterface;
-use Vipertecpro\laravelcdn6\ProviderFactory;
 use Vipertecpro\laravelcdn6\Contracts\CdnFacadeInterface;
-use Vipertecpro\laravelcdn6\CdnFacade;
 use Vipertecpro\laravelcdn6\Contracts\CdnHelperInterface;
-use Vipertecpro\laravelcdn6\CdnHelper;
 use Vipertecpro\laravelcdn6\Validators\Contracts\ProviderValidatorInterface;
 use Vipertecpro\laravelcdn6\Validators\ProviderValidator;
 use Vipertecpro\laravelcdn6\Validators\Contracts\CdnFacadeValidatorInterface;
@@ -32,7 +26,6 @@ use Vipertecpro\laravelcdn6\Commands\EmptyCommand;
  * @category Service Provider
  *
  * @author  Vipul Walia <vipertecpro@gmail.com>
- * @author  Abed Halawi <abed.halawi@vinelab.com>
  */
 class CdnServiceProvider extends ServiceProvider
 {

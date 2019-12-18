@@ -28,7 +28,7 @@ class ProviderValidator extends Validator implements ProviderValidatorInterface
         $missing = '';
         foreach ($configuration as $key => $value) {
             if (in_array($key, $required, true) &&
-                (empty($value) || $value == null || $value == '')
+                (empty($value) || $value === null || $value === '')
             ) {
                 $missing .= ' '.$key;
             }

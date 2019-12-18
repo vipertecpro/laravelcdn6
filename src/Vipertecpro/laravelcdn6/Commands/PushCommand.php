@@ -12,7 +12,6 @@ use Vipertecpro\laravelcdn6\Contracts\CdnInterface;
  * @category Command
  *
  * @author   Vipul Walia <vipertecpro@gmail.com>
- * @author   Raul Ruiz <publiux@gmail.com>
  */
 class PushCommand extends Command
 {

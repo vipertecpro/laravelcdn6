@@ -12,7 +12,6 @@ use Vipertecpro\laravelcdn6\Contracts\CdnInterface;
  * @category Command
  *
  * @author   Vipul Walia <vipertecpro@gmail.com>
- * @author   Raul Ruiz <publiux@gmail.com>
  */
 class EmptyCommand extends Command
 {
@@ -21,7 +20,7 @@ class EmptyCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'cdn:empty';
+    protected $signature = 'cdn:empty --all';
 
     /**
      * The console command description.
